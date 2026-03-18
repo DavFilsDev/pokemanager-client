@@ -1,9 +1,7 @@
+/* Importer Tailwind CSS v4 */
 @import "tailwindcss";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Tes styles personnalisés */
 @layer base {
   body {
     @apply bg-gray-50 text-gray-900 font-sans;
@@ -17,8 +15,9 @@
 }
 
 @layer components {
+  /* Boutons */
   .btn-primary {
-    @apply bg-pokemon-blue text-white px-4 py-2 rounded-lg 
+    @apply bg-blue-600 text-white px-4 py-2 rounded-lg 
            hover:bg-blue-700 transition-colors duration-200 
            font-semibold shadow-md hover:shadow-lg;
   }
@@ -30,30 +29,34 @@
   }
 
   .btn-danger {
-    @apply bg-pokemon-red text-white px-4 py-2 rounded-lg 
+    @apply bg-red-600 text-white px-4 py-2 rounded-lg 
            hover:bg-red-700 transition-colors duration-200 
            font-semibold shadow-md hover:shadow-lg;
   }
 
+  /* Cartes Pokémon */
   .pokemon-card {
     @apply bg-white rounded-xl shadow-lg p-4 
            hover:shadow-xl transition-all duration-300 
-           border-2 border-transparent hover:border-pokemon-yellow
+           border-2 border-transparent hover:border-yellow-400
            cursor-pointer;
   }
 
+  /* Barres de statistiques */
   .stat-bar {
     @apply h-2 rounded-full bg-gray-200 overflow-hidden;
   }
 
   .stat-bar-fill {
-    @apply h-full bg-pokemon-blue transition-all duration-500;
+    @apply h-full bg-blue-600 transition-all duration-500;
   }
 
+  /* Badges de type */
   .type-badge {
     @apply px-2 py-1 rounded-full text-xs font-semibold text-white;
   }
 
+  /* Couleurs de types Pokémon */
   .type-normal { @apply bg-gray-400; }
   .type-fire { @apply bg-orange-500; }
   .type-water { @apply bg-blue-500; }
@@ -78,4 +81,25 @@
   .text-shadow {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   }
+}
+
+/* Animations personnalisées */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
+}
+
+@keyframes levelUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.animate-battle-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.animate-level-up {
+  animation: levelUp 0.5s ease-out;
 }
