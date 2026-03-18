@@ -111,17 +111,6 @@ pokemanager-client/
 5. **Open your browser**
    Navigate to `http://localhost:5173`
 
-## 📦 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build for production (output in `dist/`) |
-| `npm run preview` | Preview production build locally |
-| `npm run typecheck` | Run TypeScript type checking |
-| `npm run lint` | Run ESLint |
-| `npm run format` | Format code with Prettier |
-
 ## 🔌 API Integration
 
 ### Backend Endpoints (Your Express Server)
