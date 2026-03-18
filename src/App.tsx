@@ -1,7 +1,7 @@
 function App() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-pokemon-blue text-white shadow-lg">
+      <header className="bg-blue-600 text-white shadow-lg">
         <div className="container mx-auto px-4 py-6">
           <h1 className="text-3xl font-bold text-center md:text-left">
             PokéManager
