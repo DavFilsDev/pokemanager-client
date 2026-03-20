@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Pokemon } from '../../types/pokemon.types';
-import { GiSwordman, GiShield, GiRunning } from 'react-icons/gi';
+import { GiSwordman, GiShield } from 'react-icons/gi';
+import { IoFlashOutline } from 'react-icons/io5';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
@@ -65,7 +66,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           <span>{pokemon.defense}</span>
         </div>
         <div className="flex items-center justify-center gap-1">
-          <GiRunning className="w-4 h-4 text-purple-500" />
+          <IoFlashOutline className="w-4 h-4 text-purple-500" />
           <span>{pokemon.speed}</span>
         </div>
       </div>
