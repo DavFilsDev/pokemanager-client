@@ -12,7 +12,7 @@ const CollectionPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<PokemonFilters>({});
-  const [stats, setStats] = useState<any>(null);
+  const [collectionStats, setCollectionStats] = useState<any>(null); // Renommé ici
 
   const loadPokemon = async () => {
     try {
@@ -22,8 +22,8 @@ const CollectionPage: React.FC = () => {
       setPokemon(data);
       
       // Charger les stats
-      const collectionStats = await pokemonService.getCollectionStats();
-      setStats(collectionStats);
+      const statsData = await pokemonService.getCollectionStats();
+      setCollectionStats(statsData); // Utiliser le nouveau nom
     } catch (err) {
       setError('Impossible de charger ta collection');
       console.error(err);
@@ -47,7 +47,8 @@ const CollectionPage: React.FC = () => {
     }
   };
 
-  stats = {
+  // Calcul des stats locales - renommé en localStats
+  const localStats = {
     total: pokemon.length,
     averageLevel: pokemon.reduce((acc, p) => acc + p.level, 0) / pokemon.length || 0,
     totalBattles: pokemon.reduce((acc, p) => acc + p.battlesWon + p.battlesLost, 0),
@@ -82,25 +83,25 @@ const CollectionPage: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-blue-50 p-4 rounded-lg text-center">
             <span className="block text-2xl font-bold text-blue-600">
-              {stats.total}
+              {localStats.total}
             </span>
             <span className="text-sm text-gray-600">Total Pokémon</span>
           </div>
           <div className="bg-green-50 p-4 rounded-lg text-center">
             <span className="block text-2xl font-bold text-green-600">
-              {stats.averageLevel.toFixed(1)}
+              {localStats.averageLevel.toFixed(1)}
             </span>
             <span className="text-sm text-gray-600">Niveau moyen</span>
           </div>
           <div className="bg-purple-50 p-4 rounded-lg text-center">
             <span className="block text-2xl font-bold text-purple-600">
-              {stats.totalBattles}
+              {localStats.totalBattles}
             </span>
             <span className="text-sm text-gray-600">Combats total</span>
           </div>
           <div className="bg-yellow-50 p-4 rounded-lg text-center">
             <span className="block text-2xl font-bold text-yellow-600">
-              {stats.strongest?.name || '-'}
+              {localStats.strongest?.name || '-'}
             </span>
             <span className="text-sm text-gray-600">Plus fort</span>
           </div>
