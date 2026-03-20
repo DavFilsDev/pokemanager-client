@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PokemonType, CreatePokemonDTO } from '../../types/pokemon.types';
+import { PokemonType, type CreatePokemonDTO } from '../../types/pokemon.types';
 import Button from '../common/Button';
 import TypeBadge from './TypeBadge';
 
