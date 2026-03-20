@@ -38,6 +38,7 @@ const BattlePage: React.FC = () => {
   useEffect(() => {
     loadMyPokemon();
     loadBattleHistory();
+    loadOpponents(); // Charger les adversaires au démarrage
   }, []);
 
   const loadMyPokemon = async () => {
@@ -68,7 +69,8 @@ const BattlePage: React.FC = () => {
   const loadOpponents = async () => {
     try {
       setLoading(prev => ({ ...prev, opponents: true }));
-      const data = await pokeApiService.getRandomOpponent(6);
+      // Utiliser getAvailableOpponents qui retourne un tableau
+      const data = await pokeApiService.getAvailableOpponents(6);
       setOpponents(data);
     } catch (err) {
       setError('Impossible de charger les adversaires');
@@ -83,12 +85,11 @@ const BattlePage: React.FC = () => {
       alert('Choisis ton Pokémon et un adversaire !');
       return;
     }
-    loadOpponents(); // Rafraîchir les adversaires
     setStep('battle');
   };
 
   const handleAttack = async () => {
-    if (!selectedPokemon) return;
+    if (!selectedPokemon || !selectedOpponent) return;
 
     try {
       setLoading(prev => ({ ...prev, battle: true }));
@@ -125,7 +126,7 @@ const BattlePage: React.FC = () => {
     setStep('select');
     setSelectedOpponent(null);
     setCurrentBattle(null);
-    loadOpponents();
+    loadOpponents(); // Recharger de nouveaux adversaires
   };
 
   // Rendu conditionnel
@@ -158,6 +159,7 @@ const BattlePage: React.FC = () => {
           onRetry={() => {
             setError(null);
             loadMyPokemon();
+            loadOpponents();
           }} 
         />
       )}
@@ -177,7 +179,7 @@ const BattlePage: React.FC = () => {
                   className={`cursor-pointer transition-all ${
                     selectedPokemon?.id === pokemon.id
                       ? 'scale-105 ring-4 ring-yellow-400'
-                      : 'hover:scale-102'
+                      : 'hover:scale-105'
                   }`}
                 >
                   <PokemonCard pokemon={pokemon} />
@@ -228,21 +230,21 @@ const BattlePage: React.FC = () => {
       )}
 
       {/* Résultat */}
-      {step === 'result' && currentBattle && (
+      {step === 'result' && currentBattle && selectedPokemon && (
         <div className="text-center py-8">
           <div className="mb-8">
-            <div className="text-6xl mb-4">
-              {currentBattle.winnerId === selectedPokemon?.id ? '🏆' : '😢'}
+            <div className="text-6xl mb-4 animate-bounce">
+              {currentBattle.winnerId === selectedPokemon.id ? '🏆' : '😢'}
             </div>
             <h2 className="text-3xl font-bold mb-2">
-              {currentBattle.winnerId === selectedPokemon?.id
+              {currentBattle.winnerId === selectedPokemon.id
                 ? 'Victoire !'
                 : 'Défaite...'}
             </h2>
             <p className="text-xl text-gray-600 mb-4">
               {currentBattle.winnerName} a gagné le combat !
             </p>
-            <p className="text-lg text-green-600">
+            <p className="text-lg text-green-600 font-semibold">
               +{currentBattle.xpGained} XP gagnés
             </p>
           </div>
@@ -259,7 +261,7 @@ const BattlePage: React.FC = () => {
       )}
 
       {/* Historique des combats */}
-      {!loading.history && battleHistory.length > 0 && (
+      {!loading.history && battleHistory.length > 0 && step !== 'battle' && (
         <div className="mt-12">
           <BattleLog
             battles={battleHistory}
