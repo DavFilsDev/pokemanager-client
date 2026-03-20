@@ -29,15 +29,15 @@ export interface BattleTurn {
 }
 
 export interface RandomOpponent {
-  id: number;
+  id: string; 
   name: string;
   type: PokemonType;
   hp: number;
   attack: number;
   defense: number;
   speed: number;
-  imageUrl: string;
   level: number;
+  imageUrl: string;
 }
 
 export interface BattleHistory {

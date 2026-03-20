@@ -1,5 +1,3 @@
-// src/services/pokeApiService.ts
-
 import { pokeApi } from './api';
 import type { PokeApiPokemon, PokeApiResponse } from '../types/api.types';
 import { PokemonType } from '../types/pokemon.types';
