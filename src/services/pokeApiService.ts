@@ -1,6 +1,9 @@
+// src/services/pokeApiService.ts
+
 import { pokeApi } from './api';
 import type { PokeApiPokemon, PokeApiResponse } from '../types/api.types';
 import { PokemonType } from '../types/pokemon.types';
+import type { RandomOpponent } from '../types/battle.types';
 
 const mapPokeApiType = (typeName: string): PokemonType => {
   const typeMap: Record<string, PokemonType> = {
@@ -27,7 +30,21 @@ const mapPokeApiType = (typeName: string): PokemonType => {
   return typeMap[typeName] || PokemonType.NORMAL;
 };
 
+// Interface pour un adversaire formaté
+interface FormattedOpponent {
+  id: string;  // Changé de number à string pour correspondre à RandomOpponent
+  name: string;
+  type: PokemonType;
+  hp: number;
+  attack: number;
+  defense: number;
+  speed: number;
+  level: number;
+  imageUrl: string;
+}
+
 export const pokeApiService = {
+  // Récupérer la liste des Pokémon (avec pagination)
   getPokemonList: async (limit: number = 20, offset: number = 0): Promise<PokeApiResponse> => {
     const response = await pokeApi.get<PokeApiResponse>('/pokemon', {
       params: { limit, offset }
@@ -35,14 +52,16 @@ export const pokeApiService = {
     return response.data;
   },
 
+  // Récupérer un Pokémon par son nom ou ID
   getPokemon: async (identifier: string | number): Promise<PokeApiPokemon> => {
     const response = await pokeApi.get<PokeApiPokemon>(`/pokemon/${identifier}`);
     return response.data;
   },
 
+  // Récupérer plusieurs Pokémon aléatoires (retourne les données brutes PokeAPI)
   getRandomPokemon: async (count: number = 1): Promise<PokeApiPokemon[]> => {
     const promises = [];
-    const totalPokemon = 898;
+    const totalPokemon = 898; // Nombre total de Pokémon (générations 1-8)
     
     for (let i = 0; i < count; i++) {
       const randomId = Math.floor(Math.random() * totalPokemon) + 1;
@@ -52,14 +71,16 @@ export const pokeApiService = {
     return Promise.all(promises);
   },
 
-  getRandomOpponent: async () => {
+  // Récupérer un adversaire formaté pour le combat (retourne un objet formaté)
+  getRandomOpponent: async (): Promise<FormattedOpponent> => {
     const randomId = Math.floor(Math.random() * 898) + 1;
     const pokemon = await pokeApiService.getPokemon(randomId);
     
+    // Niveau aléatoire entre 1 et 50
     const level = Math.floor(Math.random() * 50) + 1;
     
     return {
-      id: pokemon.id,
+      id: `api-${pokemon.id}`,  // Convertir en string avec préfixe pour éviter les conflits
       name: pokemon.name,
       type: mapPokeApiType(pokemon.types[0].type.name),
       hp: pokemon.stats[0].base_stat,
@@ -71,16 +92,29 @@ export const pokeApiService = {
     };
   },
 
+  // NOUVELLE MÉTHODE: Récupérer plusieurs adversaires formatés
+  getAvailableOpponents: async (count: number = 5): Promise<FormattedOpponent[]> => {
+    const promises = [];
+    for (let i = 0; i < count; i++) {
+      promises.push(pokeApiService.getRandomOpponent());
+    }
+    return Promise.all(promises);
+  },
+
+  // Rechercher des Pokémon par nom
   searchPokemon: async (query: string): Promise<PokeApiPokemon[]> => {
     try {
+      // Essayer de récupérer directement par le nom
       const pokemon = await pokeApiService.getPokemon(query.toLowerCase());
       return [pokemon];
     } catch {
+      // Si ça échoue, chercher dans la liste
       const list = await pokeApiService.getPokemonList(100, 0);
       const filtered = list.results.filter(p => 
         p.name.includes(query.toLowerCase())
       );
       
+      // Récupérer les détails des Pokémon filtrés
       const promises = filtered.slice(0, 10).map(p => 
         pokeApiService.getPokemon(p.name)
       );
@@ -89,8 +123,12 @@ export const pokeApiService = {
     }
   },
 
+  // Récupérer les types disponibles
   getTypes: async (): Promise<string[]> => {
     const response = await pokeApi.get('/type');
     return response.data.results.map((t: any) => t.name);
   }
 };
+
+// Exporter le type pour l'utiliser ailleurs si nécessaire
+export type { FormattedOpponent };
