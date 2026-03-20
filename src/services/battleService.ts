@@ -1,6 +1,5 @@
 import { api } from './api';
 import type { BattleResult, RandomOpponent, BattleStats } from '../types/battle.types';
-import type { Pokemon } from '../types/pokemon.types';
 
 export const battleService = {
   battleRandom: async (pokemonId: string): Promise<BattleResult> => {
