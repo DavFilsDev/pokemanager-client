@@ -1,4 +1,4 @@
-import type { Pokemon } from './pokemon.types';
+import type { Pokemon, PokemonType } from './pokemon.types';
 
 export interface BattleResult {
   id: string;
