@@ -2,34 +2,11 @@ import React from 'react';
 import type { Pokemon } from '../../types/pokemon.types';
 import { GiSwordman, GiShield } from 'react-icons/gi';
 import { IoFlashOutline } from 'react-icons/io5';
+import TypeBadge from './TypeBadge';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
 }
-
-const getTypeColor = (type: string): string => {
-  const colors: Record<string, string> = {
-    normal: 'bg-gray-400',
-    fire: 'bg-orange-500',
-    water: 'bg-blue-500',
-    grass: 'bg-green-500',
-    electric: 'bg-yellow-400',
-    ice: 'bg-cyan-300',
-    fighting: 'bg-red-700',
-    poison: 'bg-purple-600',
-    ground: 'bg-yellow-600',
-    flying: 'bg-indigo-300',
-    psychic: 'bg-pink-500',
-    bug: 'bg-lime-500',
-    rock: 'bg-yellow-800',
-    ghost: 'bg-purple-800',
-    dark: 'bg-gray-800',
-    dragon: 'bg-indigo-700',
-    steel: 'bg-gray-500',
-    fairy: 'bg-pink-300',
-  };
-  return colors[type] || 'bg-gray-400';
-};
 
 const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
   const xpPercentage = (pokemon.xp / pokemon.xpToNextLevel) * 100;
@@ -41,9 +18,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon }) => {
           <h3 className="text-lg font-bold">{pokemon.nickname || pokemon.name}</h3>
           <p className="text-sm text-gray-500">Niveau {pokemon.level}</p>
         </div>
-        <span className={`${getTypeColor(pokemon.type)} px-2 py-1 rounded-lg text-xs text-white font-medium`}>
-          {pokemon.type}
-        </span>
+        <TypeBadge type={pokemon.type} size="sm" />
       </div>
 
       <div className="mb-3">
