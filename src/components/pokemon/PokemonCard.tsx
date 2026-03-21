@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 import { GiSwordman, GiShield } from 'react-icons/gi';
 import { IoFlashOutline } from 'react-icons/io5';
-import { type Pokemon, UpdatePokemonDTO } from '../../types/pokemon.types';
+import type { Pokemon, UpdatePokemonDTO } from '../../types/pokemon.types';
 import { pokemonService } from '../../services/pokemonService';
 import TypeBadge from './TypeBadge';
 import PokemonUpdateModal from './PokemonUpdateModal';

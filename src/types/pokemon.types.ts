@@ -46,3 +46,17 @@ export interface CreatePokemonDTO {
   speed: number;
   nickname?: string;
 }
+
+export interface UpdatePokemonDTO {
+  name?: string;
+  nickname?: string;
+  level?: number;
+  xp?: number;
+  hp?: number;
+  attack?: number;
+  defense?: number;
+  speed?: number;
+  type?: PokemonType;
+  battlesWon?: number;
+  battlesLost?: number;
+}

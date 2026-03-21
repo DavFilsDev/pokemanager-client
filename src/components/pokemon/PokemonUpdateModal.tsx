@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FiX } from 'react-icons/fi';
-import { type Pokemon, PokemonType, UpdatePokemonDTO } from '../../types/pokemon.types';
+import { type Pokemon, PokemonType, type UpdatePokemonDTO } from '../../types/pokemon.types';
 import Button from '../common/Button';
 import TypeBadge from './TypeBadge';
 
