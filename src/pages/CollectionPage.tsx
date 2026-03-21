@@ -37,7 +37,11 @@ const CollectionPage: React.FC = () => {
       setLoading(true);
       const data = await pokemonService.getAll();
       setPokemon(data);
-      setFilteredPokemon(data);
+      if (!searchQuery) {
+        setFilteredPokemon(data);
+      } else {
+        handleSearch(searchQuery);
+      }
     } catch (err) {
       setError('Impossible de charger la collection');
     } finally {
@@ -145,7 +149,12 @@ const CollectionPage: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPokemon.map((p) => (
-              <PokemonCard key={p.id} pokemon={p} />
+              <PokemonCard
+                key={p.id}
+                pokemon={p}
+                onUpdate={loadPokemon}
+                onDelete={loadPokemon}
+              />
             ))}
           </div>
         )}
