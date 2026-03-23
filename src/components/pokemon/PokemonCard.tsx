@@ -22,7 +22,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
   const xpPercentage = (pokemon.xp / pokemon.xpToNextLevel) * 100;
 
   const handleDelete = async () => {
-    if (window.confirm(`Es-tu sûr de vouloir supprimer ${pokemon.nickname || pokemon.name} ?`)) {
+    if (window.confirm(`Are you sure you want to delete ${pokemon.nickname || pokemon.name} ?`)) {
       try {
         setIsDeleting(true);
         await pokemonService.delete(pokemon.id);
