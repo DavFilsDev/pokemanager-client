@@ -29,7 +29,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
         if (onDelete) onDelete();
       } catch (error) {
         console.error('Delete error:', error);
-        alert('Erreur lors de la suppression');
+        alert('Error during deletion');
       } finally {
         setIsDeleting(false);
       }
