@@ -51,23 +51,23 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
     const newErrors: Partial<Record<keyof UpdatePokemonDTO, string>> = {};
 
     if (!formData.name?.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = 'The name is required';
     }
 
     if (formData.hp && (formData.hp < 1 || formData.hp > 255)) {
-      newErrors.hp = 'Les HP doivent être entre 1 et 255';
+      newErrors.hp = 'HP values must be between 1 and 255';
     }
 
     if (formData.attack && (formData.attack < 1 || formData.attack > 255)) {
-      newErrors.attack = "L'attaque doit être entre 1 et 255";
+      newErrors.attack = "The attack must be between 1 and 255";
     }
 
     if (formData.defense && (formData.defense < 1 || formData.defense > 255)) {
-      newErrors.defense = 'La défense doit être entre 1 et 255';
+      newErrors.defense = 'The defense value must be between 1 and 255';
     }
 
     if (formData.speed && (formData.speed < 1 || formData.speed > 255)) {
-      newErrors.speed = 'La vitesse doit être entre 1 et 255';
+      newErrors.speed = 'The speed must be between 1 and 255';
     }
 
     setErrors(newErrors);

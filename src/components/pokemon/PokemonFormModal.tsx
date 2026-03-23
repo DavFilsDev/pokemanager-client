@@ -35,23 +35,23 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     const newErrors: Partial<Record<keyof CreatePokemonDTO, string>> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = 'The name is required';
     }
 
     if (formData.hp < 1 || formData.hp > 255) {
-      newErrors.hp = 'Les HP doivent être entre 1 et 255';
+      newErrors.hp = 'HP values must be between 1 and 255';
     }
 
     if (formData.attack < 1 || formData.attack > 255) {
-      newErrors.attack = "L'attaque doit être entre 1 et 255";
+      newErrors.attack = "The attack must be between 1 and 255";
     }
 
     if (formData.defense < 1 || formData.defense > 255) {
-      newErrors.defense = 'La défense doit être entre 1 et 255';
+      newErrors.defense = 'The defense value must be between 1 and 255';
     }
 
     if (formData.speed < 1 || formData.speed > 255) {
-      newErrors.speed = 'La vitesse doit être entre 1 et 255';
+      newErrors.speed = 'The speed must be between 1 and 255';
     }
 
     setErrors(newErrors);
@@ -106,7 +106,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
         >
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Créer un nouveau Pokémon</h2>
+            <h2 className="text-2xl font-bold">Create a new Pokémon</h2>
             <button
               onClick={handleClose}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
@@ -117,9 +117,9 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
-            {/* Nom */}
+            {/* Name */}
             <div>
-              <label className="block text-sm font-medium mb-2">Nom du Pokémon *</label>
+              <label className="block text-sm font-medium mb-2">Pokémon Name *</label>
               <input
                 type="text"
                 name="name"
@@ -131,9 +131,9 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
             </div>
 
-            {/* Surnom */}
+            {/* Nickname */}
             <div>
-              <label className="block text-sm font-medium mb-2">Surnom (optionnel)</label>
+              <label className="block text-sm font-medium mb-2">Nickname (optional)</label>
               <input
                 type="text"
                 name="nickname"
@@ -182,7 +182,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Attaque ({formData.attack})</label>
+                <label className="block text-sm font-medium mb-2">Attack ({formData.attack})</label>
                 <input
                   type="range"
                   name="attack"
@@ -196,7 +196,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Défense ({formData.defense})</label>
+                <label className="block text-sm font-medium mb-2">Defense ({formData.defense})</label>
                 <input
                   type="range"
                   name="defense"
@@ -210,7 +210,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Vitesse ({formData.speed})</label>
+                <label className="block text-sm font-medium mb-2">Speed ({formData.speed})</label>
                 <input
                   type="range"
                   name="speed"
@@ -232,14 +232,14 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
                 loading={loading}
                 className="flex-1"
               >
-                Créer le Pokémon
+                Create the Pokémon
               </Button>
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
               >
-                Annuler
+                Cancel
               </Button>
             </div>
           </form>

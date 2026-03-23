@@ -22,14 +22,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
   const xpPercentage = (pokemon.xp / pokemon.xpToNextLevel) * 100;
 
   const handleDelete = async () => {
-    if (window.confirm(`Es-tu sûr de vouloir supprimer ${pokemon.nickname || pokemon.name} ?`)) {
+    if (window.confirm(`Are you sure you want to delete ${pokemon.nickname || pokemon.name} ?`)) {
       try {
         setIsDeleting(true);
         await pokemonService.delete(pokemon.id);
         if (onDelete) onDelete();
       } catch (error) {
         console.error('Delete error:', error);
-        alert('Erreur lors de la suppression');
+        alert('Error during deletion');
       } finally {
         setIsDeleting(false);
       }
@@ -44,7 +44,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
       setIsUpdateModalOpen(false);
     } catch (error) {
       console.error('Update error:', error);
-      alert('Erreur lors de la mise à jour');
+      alert('Error during update');
     } finally {
       setIsUpdating(false);
     }
@@ -61,7 +61,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
                 {pokemon.nickname || pokemon.name}
               </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Niveau {pokemon.level}
+                Level {pokemon.level}
               </p>
             </div>
             <TypeBadge type={pokemon.type} size="sm" />
@@ -120,8 +120,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
 
           {/* Battle Record */}
           <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between text-xs text-gray-500 dark:text-gray-400">
-            <span>🏆 Victoires: {pokemon.battlesWon}</span>
-            <span>💔 Défaites: {pokemon.battlesLost}</span>
+            <span>🏆 Wins: {pokemon.battlesWon}</span>
+            <span>💔 Defeats: {pokemon.battlesLost}</span>
           </div>
         </div>
       </div>

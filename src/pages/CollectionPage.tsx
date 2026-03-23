@@ -43,7 +43,7 @@ const CollectionPage: React.FC = () => {
         handleSearch(searchQuery);
       }
     } catch (err) {
-      setError('Impossible de charger la collection');
+      setError('Unable to load the collection');
     } finally {
       setLoading(false);
     }
@@ -73,7 +73,7 @@ const CollectionPage: React.FC = () => {
       setIsModalOpen(false);
     } catch (err) {
       console.error('Create error:', err);
-      alert('Erreur lors de la création du Pokémon');
+      alert('Error during the creation the Pokémon');
     } finally {
       setIsCreating(false);
     }
@@ -99,9 +99,9 @@ const CollectionPage: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
           {/* Left section */}
           <div>
-            <h1 className="text-3xl font-bold">Ma Collection</h1>
+            <h1 className="text-3xl font-bold">My collections</h1>
             <p className="text-gray-500 dark:text-gray-400 mt-1">
-              {filteredPokemon.length} Pokémon dans ta collection
+              {filteredPokemon.length} Pokémon in my collection
               {searchQuery && ` - Résultats pour "${searchQuery}"`}
             </p>
           </div>
@@ -123,7 +123,7 @@ const CollectionPage: React.FC = () => {
               className="flex items-center gap-2"
             >
               <FiPlus className="w-5 h-5" />
-              Nouveau Pokémon
+              New Pokémon
             </Button>
           </div>
         </div>
@@ -142,7 +142,7 @@ const CollectionPage: React.FC = () => {
                 onClick={() => setIsModalOpen(true)}
                 className="mt-4"
               >
-                Créer ton premier Pokémon
+                Create your first Pokémon
               </Button>
             )}
           </div>
