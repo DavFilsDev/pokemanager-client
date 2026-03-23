@@ -43,7 +43,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     }
 
     if (formData.attack < 1 || formData.attack > 255) {
-      newErrors.attack = "L'attaque doit être entre 1 et 255";
+      newErrors.attack = "The attack must be between 1 and 255";
     }
 
     if (formData.defense < 1 || formData.defense > 255) {
