@@ -196,7 +196,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Défense ({formData.defense})</label>
+                <label className="block text-sm font-medium mb-2">Defense ({formData.defense})</label>
                 <input
                   type="range"
                   name="defense"
