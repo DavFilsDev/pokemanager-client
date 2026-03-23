@@ -120,8 +120,8 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
 
           {/* Battle Record */}
           <div className="mt-4 pt-3 border-t border-gray-200 dark:border-gray-700 flex justify-between text-xs text-gray-500 dark:text-gray-400">
-            <span>🏆 Victoires: {pokemon.battlesWon}</span>
-            <span>💔 Défaites: {pokemon.battlesLost}</span>
+            <span>🏆 Wins: {pokemon.battlesWon}</span>
+            <span>💔 Defeats: {pokemon.battlesLost}</span>
           </div>
         </div>
       </div>
