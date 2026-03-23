@@ -35,7 +35,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     const newErrors: Partial<Record<keyof CreatePokemonDTO, string>> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = 'The name is required';
     }
 
     if (formData.hp < 1 || formData.hp > 255) {
