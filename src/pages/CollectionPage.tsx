@@ -73,7 +73,7 @@ const CollectionPage: React.FC = () => {
       setIsModalOpen(false);
     } catch (err) {
       console.error('Create error:', err);
-      alert('Erreur lors de la création du Pokémon');
+      alert('Error during the creation the Pokémon');
     } finally {
       setIsCreating(false);
     }
