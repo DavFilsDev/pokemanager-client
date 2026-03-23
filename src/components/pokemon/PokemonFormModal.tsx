@@ -117,7 +117,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
-            {/* Nom */}
+            {/* Name */}
             <div>
               <label className="block text-sm font-medium mb-2">Pokémon Name *</label>
               <input
@@ -131,7 +131,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
               {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
             </div>
 
-            {/* Surnom */}
+            {/* Nickname */}
             <div>
               <label className="block text-sm font-medium mb-2">Nickname (optional)</label>
               <input
@@ -232,14 +232,14 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
                 loading={loading}
                 className="flex-1"
               >
-                Créer le Pokémon
+                Create the Pokémon
               </Button>
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
               >
-                Annuler
+                Cancel
               </Button>
             </div>
           </form>
