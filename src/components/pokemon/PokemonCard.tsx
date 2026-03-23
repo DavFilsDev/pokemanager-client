@@ -44,7 +44,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
       setIsUpdateModalOpen(false);
     } catch (error) {
       console.error('Update error:', error);
-      alert('Erreur lors de la mise à jour');
+      alert('Error during update');
     } finally {
       setIsUpdating(false);
     }
