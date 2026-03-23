@@ -6,7 +6,6 @@ import type { Pokemon, UpdatePokemonDTO } from '../../types/pokemon.types';
 import { pokemonService } from '../../services/pokemonService';
 import TypeBadge from './TypeBadge';
 import PokemonUpdateModal from './PokemonUpdateModal';
-import Button from '../common/Button';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
