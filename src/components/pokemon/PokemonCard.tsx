@@ -6,6 +6,7 @@ import type { Pokemon, UpdatePokemonDTO } from '../../types/pokemon.types';
 import { pokemonService } from '../../services/pokemonService';
 import TypeBadge from './TypeBadge';
 import PokemonUpdateModal from './PokemonUpdateModal';
+import Button from '../common/Button';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
@@ -54,14 +55,14 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
       <div className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 transition-all duration-300 hover:scale-[1.02]">
         {/* Actions buttons - visible on hover */}
         <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-          <button
+          <Button
             onClick={() => setIsUpdateModalOpen(true)}
             className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
             title="Modifier"
           >
             <FiEdit2 className="w-4 h-4 text-blue-500" />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={handleDelete}
             disabled={isDeleting}
             className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
@@ -72,7 +73,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
             ) : (
               <FiTrash2 className="w-4 h-4 text-red-500" />
             )}
-          </button>
+          </Button>
         </div>
 
         {/* Content */}
