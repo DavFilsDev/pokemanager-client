@@ -61,7 +61,7 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
                 {pokemon.nickname || pokemon.name}
               </h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                Niveau {pokemon.level}
+                Level {pokemon.level}
               </p>
             </div>
             <TypeBadge type={pokemon.type} size="sm" />
