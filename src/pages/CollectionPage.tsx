@@ -43,7 +43,7 @@ const CollectionPage: React.FC = () => {
         handleSearch(searchQuery);
       }
     } catch (err) {
-      setError('Impossible de charger la collection');
+      setError('Unable to load the collection');
     } finally {
       setLoading(false);
     }
