@@ -51,7 +51,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
     const newErrors: Partial<Record<keyof UpdatePokemonDTO, string>> = {};
 
     if (!formData.name?.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = 'The name is required';
     }
 
     if (formData.hp && (formData.hp < 1 || formData.hp > 255)) {
