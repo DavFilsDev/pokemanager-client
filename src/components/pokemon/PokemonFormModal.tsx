@@ -133,7 +133,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
 
             {/* Surnom */}
             <div>
-              <label className="block text-sm font-medium mb-2">Surnom (optionnel)</label>
+              <label className="block text-sm font-medium mb-2">Nickname (optionnel)</label>
               <input
                 type="text"
                 name="nickname"
