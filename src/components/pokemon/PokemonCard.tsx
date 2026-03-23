@@ -52,34 +52,11 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
 
   return (
     <>
-      <div className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 transition-all duration-300 hover:scale-[1.02]">
-        {/* Actions buttons - visible on hover */}
-        <div className="absolute top-3 right-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
-          <Button
-            onClick={() => setIsUpdateModalOpen(true)}
-            className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
-            title="Modifier"
-          >
-            <FiEdit2 className="w-4 h-4 text-blue-500" />
-          </Button>
-          <Button
-            onClick={handleDelete}
-            disabled={isDeleting}
-            className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
-            title="Supprimer"
-          >
-            {isDeleting ? (
-              <div className="w-4 h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
-            ) : (
-              <FiTrash2 className="w-4 h-4 text-red-500" />
-            )}
-          </Button>
-        </div>
-
+      <div className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl border border-gray-200/50 dark:border-gray-700/50 transition-all duration-300 hover:scale-[1.01]">
         {/* Content */}
         <div className="p-5">
           <div className="flex justify-between items-start mb-3">
-            <div className="flex-1 pr-16">
+            <div className="">
               <h3 className="text-lg font-bold text-gray-900 dark:text-white truncate">
                 {pokemon.nickname || pokemon.name}
               </h3>
@@ -88,6 +65,27 @@ const PokemonCard: React.FC<PokemonCardProps> = ({ pokemon, onUpdate, onDelete }
               </p>
             </div>
             <TypeBadge type={pokemon.type} size="sm" />
+            <div className="flex gap-2 opacity-0 opacity-100 transition-opacity duration-200 z-10">
+              <Button
+                onClick={() => setIsUpdateModalOpen(true)}
+                className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors"
+                title="Modifier"
+              >
+                <FiEdit2 className="w-4 h-4 text-blue-500" />
+              </Button>
+              <Button
+                onClick={handleDelete}
+                disabled={isDeleting}
+                className="p-2 bg-white dark:bg-gray-700 rounded-lg shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
+                title="Supprimer"
+              >
+                {isDeleting ? (
+                  <div className="w-4 h-4 border-2 border-red-500 border-t-transparent rounded-full animate-spin" />
+                ) : (
+                  <FiTrash2 className="w-4 h-4 text-red-500" />
+                )}
+              </Button>
+            </div>
           </div>
 
           {/* XP Bar */}
