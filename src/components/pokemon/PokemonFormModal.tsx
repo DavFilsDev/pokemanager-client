@@ -39,7 +39,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     }
 
     if (formData.hp < 1 || formData.hp > 255) {
-      newErrors.hp = 'Les HP doivent être entre 1 et 255';
+      newErrors.hp = 'HP values must be between 1 and 255';
     }
 
     if (formData.attack < 1 || formData.attack > 255) {
