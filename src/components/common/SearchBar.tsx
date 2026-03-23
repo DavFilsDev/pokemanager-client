@@ -9,7 +9,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({
   onSearch,
-  placeholder = 'Rechercher un Pokémon...',
+  placeholder = 'Search for a Pokémon...',
   delay = 300
 }) => {
   const [query, setQuery] = useState('');
