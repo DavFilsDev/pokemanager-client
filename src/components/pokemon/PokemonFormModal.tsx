@@ -106,7 +106,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
         >
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Créer un nouveau Pokémon</h2>
+            <h2 className="text-2xl font-bold">Create a new Pokémon</h2>
             <button
               onClick={handleClose}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
