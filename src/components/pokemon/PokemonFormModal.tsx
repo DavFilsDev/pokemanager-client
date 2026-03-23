@@ -47,7 +47,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     }
 
     if (formData.defense < 1 || formData.defense > 255) {
-      newErrors.defense = 'La défense doit être entre 1 et 255';
+      newErrors.defense = 'The defense value must be between 1 and 255';
     }
 
     if (formData.speed < 1 || formData.speed > 255) {
