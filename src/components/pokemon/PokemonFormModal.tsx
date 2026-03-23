@@ -51,7 +51,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
     }
 
     if (formData.speed < 1 || formData.speed > 255) {
-      newErrors.speed = 'La vitesse doit être entre 1 et 255';
+      newErrors.speed = 'The speed must be between 1 and 255';
     }
 
     setErrors(newErrors);
