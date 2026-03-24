@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { FiX } from 'react-icons/fi';
 import { type Pokemon, PokemonType, type UpdatePokemonDTO } from '../../types/pokemon.types';
 import Button from '../common/Button';
 import TypeBadge from './TypeBadge';
@@ -112,21 +111,17 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Modifier Pokémon</h2>
-            <button
-              onClick={handleClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-            >
-              <FiX className="w-5 h-5" />
-            </button>
+          <div className="flex justify-center p-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Update Pokémon
+            </h2>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
             {/* Nom */}
             <div>
-              <label className="block text-sm font-medium mb-2">Nom du Pokémon *</label>
+              <label className="block text-sm font-medium mb-2">Pokémon Name *</label>
               <input
                 type="text"
                 name="name"
@@ -140,7 +135,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
 
             {/* Surnom */}
             <div>
-              <label className="block text-sm font-medium mb-2">Surnom (optionnel)</label>
+              <label className="block text-sm font-medium mb-2">Nickname (optional)</label>
               <input
                 type="text"
                 name="nickname"
@@ -189,7 +184,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Attaque ({formData.attack})</label>
+                <label className="block text-sm font-medium mb-2">Attack ({formData.attack})</label>
                 <input
                   type="range"
                   name="attack"
@@ -203,7 +198,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Défense ({formData.defense})</label>
+                <label className="block text-sm font-medium mb-2">Defense ({formData.defense})</label>
                 <input
                   type="range"
                   name="defense"
@@ -217,7 +212,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Vitesse ({formData.speed})</label>
+                <label className="block text-sm font-medium mb-2">Speed ({formData.speed})</label>
                 <input
                   type="range"
                   name="speed"
@@ -232,21 +227,40 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex justify-center gap-3 pt-4">
               <Button
                 type="submit"
                 variant="primary"
                 loading={loading}
-                className="flex-1"
+                className="flex items-center justify-center gap-2
+                          w-48
+                          text-lg font-semibold
+                          bg-blue-600/20 dark:bg-blue-500/20
+                          text-blue-600 dark:text-blue-400
+                          backdrop-blur-md
+                          border border-blue-300/30 dark:border-blue-500/30
+                          shadow-lg hover:shadow-xl
+                          hover:bg-blue-600/30 dark:hover:bg-blue-500/30
+                          transition-all duration-300"
               >
-                Mettre à jour
+                Update
               </Button>
+              
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
+                className="flex items-center justify-center gap-2
+                          w-48
+                          text-lg font-semibold
+                          bg-white/10 dark:bg-white/5
+                          backdrop-blur-md
+                          border border-white/20 dark:border-white/10
+                          shadow-lg hover:shadow-xl
+                          hover:bg-white/20 dark:hover:bg-white/10
+                          transition-all duration-300"
               >
-                Annuler
+                Cancel
               </Button>
             </div>
           </form>

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FiX } from 'react-icons/fi';
 import { PokemonType, type CreatePokemonDTO } from '../../types/pokemon.types';
 import Button from '../common/Button';
 import TypeBadge from './TypeBadge';
@@ -105,14 +104,10 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Create a new Pokémon</h2>
-            <button
-              onClick={handleClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-            >
-              <FiX className="w-5 h-5" />
-            </button>
+          <div className="flex justify-center p-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Create a new pokemon
+            </h2>
           </div>
 
           {/* Form */}
@@ -225,19 +220,38 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex justify-center gap-3 pt-4">
               <Button
                 type="submit"
                 variant="primary"
                 loading={loading}
-                className="flex-1"
+                className="flex items-center justify-center gap-2
+                          w-48
+                          text-lg font-semibold
+                          bg-blue-600/20 dark:bg-blue-500/20
+                          text-blue-600 dark:text-blue-400
+                          backdrop-blur-md
+                          border border-blue-300/30 dark:border-blue-500/30
+                          shadow-lg hover:shadow-xl
+                          hover:bg-blue-600/30 dark:hover:bg-blue-500/30
+                          transition-all duration-300"
               >
-                Create the Pokémon
+                Create
               </Button>
+              
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
+                className="flex items-center justify-center gap-2
+                          w-48
+                          text-lg font-semibold
+                          bg-white/10 dark:bg-white/5
+                          backdrop-blur-md
+                          border border-white/20 dark:border-white/10
+                          shadow-lg hover:shadow-xl
+                          hover:bg-white/20 dark:hover:bg-white/10
+                          transition-all duration-300"
               >
                 Cancel
               </Button>
