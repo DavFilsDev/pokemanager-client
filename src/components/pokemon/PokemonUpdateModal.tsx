@@ -212,7 +212,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Vitesse ({formData.speed})</label>
+                <label className="block text-sm font-medium mb-2">Speed ({formData.speed})</label>
                 <input
                   type="range"
                   name="speed"
