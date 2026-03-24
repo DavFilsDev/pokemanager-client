@@ -86,7 +86,7 @@ const CollectionPage: React.FC = () => {
       <div className="text-center py-12">
         <p className="text-red-500">{error}</p>
         <button onClick={loadPokemon} className="btn-primary mt-4">
-          Réessayer
+          Retry
         </button>
       </div>
     );
