@@ -239,7 +239,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
                 loading={loading}
                 className="flex-1"
               >
-                Mettre à jour
+                Update
               </Button>
               <Button
                 type="button"
