@@ -227,19 +227,33 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
             </div>
 
             {/* Actions */}
-            <div className="flex gap-3 pt-4">
+            <div className="flex justify-center gap-3 pt-4">
               <Button
                 type="submit"
                 variant="primary"
                 loading={loading}
-                className="flex-1"
+                className="flex items-center gap-2
+                          bg-white/10 dark:bg-white/5
+                          backdrop-blur-md
+                          border border-white/20 dark:border-white/10
+                          shadow-lg hover:shadow-xl
+                          hover:bg-white/20 dark:hover:bg-white/10
+                          transition-all duration-300"
               >
                 Update
               </Button>
+              
               <Button
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
+                className="flex items-center gap-2
+                          bg-white/10 dark:bg-white/5
+                          backdrop-blur-md
+                          border border-white/20 dark:border-white/10
+                          shadow-lg hover:shadow-xl
+                          hover:bg-white/20 dark:hover:bg-white/10
+                          transition-all duration-300"
               >
                 Cancel
               </Button>
