@@ -121,7 +121,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
           <form onSubmit={handleSubmit} className="p-6 space-y-6">
             {/* Nom */}
             <div>
-              <label className="block text-sm font-medium mb-2">Nom du Pokémon *</label>
+              <label className="block text-sm font-medium mb-2">Pokémon Name *</label>
               <input
                 type="text"
                 name="name"
