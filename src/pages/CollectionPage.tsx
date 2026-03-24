@@ -120,7 +120,13 @@ const CollectionPage: React.FC = () => {
             <Button
               variant="primary"
               onClick={() => setIsModalOpen(true)}
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 
+                        bg-white/10 dark:bg-white/5 
+                        backdrop-blur-md 
+                        border border-white/20 dark:border-white/10
+                        shadow-lg hover:shadow-xl
+                        hover:bg-white/20 dark:hover:bg-white/10
+                        transition-all duration-300"
             >
               <FiPlus className="w-5 h-5" />
               New Pokémon
