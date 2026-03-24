@@ -135,7 +135,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
 
             {/* Surnom */}
             <div>
-              <label className="block text-sm font-medium mb-2">Surnom (optionnel)</label>
+              <label className="block text-sm font-medium mb-2">Nickname (optional)</label>
               <input
                 type="text"
                 name="nickname"
