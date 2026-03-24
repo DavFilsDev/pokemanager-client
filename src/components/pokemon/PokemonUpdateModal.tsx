@@ -184,7 +184,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium mb-2">Attaque ({formData.attack})</label>
+                <label className="block text-sm font-medium mb-2">Attack ({formData.attack})</label>
                 <input
                   type="range"
                   name="attack"
