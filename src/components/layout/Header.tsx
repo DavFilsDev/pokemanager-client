@@ -24,9 +24,20 @@ const Header: React.FC<HeaderProps> = ({ darkMode, onToggleDarkMode }) => {
 
         <button
           onClick={onToggleDarkMode}
-          className="p-2 rounded-xl glass-morphism hover:scale-105 transition-transform"
+          className="p-2 rounded-xl glass-morphism 
+                    transition-all duration-500 ease-in-out
+                    hover:scale-110 active:scale-95"
         >
-          {darkMode ? <FiSun className="w-5 h-5" /> : <FiMoon className="w-5 h-5" />}
+          <div
+            className={`transition-all duration-500 ease-in-out transform
+                        ${darkMode ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}
+          >
+            {darkMode ? (
+              <FiSun className="w-5 h-5 transition-opacity duration-300 opacity-100" />
+            ) : (
+              <FiMoon className="w-5 h-5 transition-opacity duration-300 opacity-100" />
+            )}    
+          </div>
         </button>
       </div>
     </header>
