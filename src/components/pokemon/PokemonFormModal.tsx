@@ -105,7 +105,7 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
         >
           {/* Header */}
           <div className="flex justify-center p-6">
-            <h2 className="text-2xl font-bold">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Create a new pokemon
             </h2>
           </div>
