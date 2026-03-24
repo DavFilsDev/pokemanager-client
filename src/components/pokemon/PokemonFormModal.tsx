@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FiX } from 'react-icons/fi';
 import { PokemonType, type CreatePokemonDTO } from '../../types/pokemon.types';
 import Button from '../common/Button';
 import TypeBadge from './TypeBadge';
@@ -105,14 +104,10 @@ const PokemonFormModal: React.FC<PokemonFormModalProps> = ({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Create a new Pokémon</h2>
-            <button
-              onClick={handleClose}
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-            >
-              <FiX className="w-5 h-5" />
-            </button>
+          <div className="flex justify-center p-6">
+            <h2 className="text-2xl font-bold">
+              Create a new pokemon
+            </h2>
           </div>
 
           {/* Form */}
