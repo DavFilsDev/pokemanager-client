@@ -246,7 +246,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
                 variant="secondary"
                 onClick={handleClose}
               >
-                Annuler
+                Cancel
               </Button>
             </div>
           </form>
