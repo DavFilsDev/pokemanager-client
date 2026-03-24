@@ -33,9 +33,9 @@ const Header: React.FC<HeaderProps> = ({ darkMode, onToggleDarkMode }) => {
                         ${darkMode ? "rotate-180 scale-110" : "rotate-0 scale-100"}`}
           >
             {darkMode ? (
-              <FiSun className="w-5 h-5 transition-opacity duration-300 opacity-100" />
+              <FiSun className="w-5 h-5 text-yellow-400 transition-opacity duration-300 opacity-100" />
             ) : (
-              <FiMoon className="w-5 h-5 transition-opacity duration-300 opacity-100" />
+              <FiMoon className="w-5 h-5 text-black-400 transition-opacity duration-300 opacity-100" />
             )}    
           </div>
         </button>
