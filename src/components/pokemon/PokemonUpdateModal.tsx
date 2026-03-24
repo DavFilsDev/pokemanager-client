@@ -234,6 +234,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
                 loading={loading}
                 className="flex items-center justify-center gap-2
                           w-48
+                          text-lg font-semibold
                           bg-blue-600/20 dark:bg-blue-500/20
                           text-blue-600 dark:text-blue-400
                           backdrop-blur-md
@@ -249,7 +250,9 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
                 type="button"
                 variant="secondary"
                 onClick={handleClose}
-                className="flex items-center gap-2
+                className="flex items-center justify-center gap-2
+                          w-48
+                          text-lg font-semibold
                           bg-white/10 dark:bg-white/5
                           backdrop-blur-md
                           border border-white/20 dark:border-white/10
