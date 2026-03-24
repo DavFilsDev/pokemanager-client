@@ -232,12 +232,14 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
                 type="submit"
                 variant="primary"
                 loading={loading}
-                className="flex items-center gap-2
-                          bg-white/10 dark:bg-white/5
+                className="flex items-center justify-center gap-2
+                          w-48
+                          bg-blue-600/20 dark:bg-blue-500/20
+                          text-blue-600 dark:text-blue-400
                           backdrop-blur-md
-                          border border-white/20 dark:border-white/10
+                          border border-blue-300/30 dark:border-blue-500/30
                           shadow-lg hover:shadow-xl
-                          hover:bg-white/20 dark:hover:bg-white/10
+                          hover:bg-blue-600/30 dark:hover:bg-blue-500/30
                           transition-all duration-300"
               >
                 Update
