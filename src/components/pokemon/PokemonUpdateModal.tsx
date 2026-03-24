@@ -113,7 +113,7 @@ const PokemonUpdateModal: React.FC<PokemonUpdateModalProps> = ({
         >
           {/* Header */}
           <div className="flex justify-between items-center p-6 border-b border-gray-200 dark:border-gray-700">
-            <h2 className="text-2xl font-bold">Modifier Pokémon</h2>
+            <h2 className="text-2xl font-bold">Update Pokémon</h2>
             <button
               onClick={handleClose}
               className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
